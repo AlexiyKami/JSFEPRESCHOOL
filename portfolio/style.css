@@ -14,13 +14,10 @@ h1 {
     font-size: 60px;
     font-family: Merriweather;
     color: white;
-    font-weight: 400;
+    font-weight: 700;
     line-height: 200%;
 }
 
-h2 {
-    font-size: 20px;
-}
 
 body {
     background-color: black;
@@ -28,7 +25,6 @@ body {
 }
 
 .wrapper {
-    background-color: blue;
     position: relative;
     width: 1440px;
     margin: 0 auto;
@@ -39,6 +35,28 @@ body {
     margin: 0 auto;
     
 }
+
+/* Titles with gold line */
+
+.section-title {
+    font-size: 40px;
+    line-height: 200%;
+    font-family: Merriweather;
+    color: var(--color-gold);
+    font-weight: 700;
+    margin-top: 100px;
+    text-align: center;
+    background: url('./assets/svg/section-title-line.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.section-title span {
+    background-color: black;
+    padding: 0px 20px;
+}
+
+
+
 /* --------- Header --------- */
 .header {
     position: absolute;
@@ -136,9 +154,54 @@ body {
     height: 55px;
 }
 
-.button-text {
+.hero-button-text {
     color: black;
     font-size: 20px;
     line-height: 200%;
 }
+    /* --------- Skills --------- */
 
+.skill-item img {
+    margin: 0 auto;
+}
+
+.skill-title {
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 200%;
+    color: white;
+    margin: 0 auto;
+    width: 280px;
+}
+
+.skill-text {
+    font-family: Inter;
+    color: white;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 200%;
+    margin: 0 auto;
+    width: 280px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 320px;
+    height: 240px;
+}
+
+.skills-items {
+    height: 242px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-top: 60px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 2px;
+    text-align: center;
+}
