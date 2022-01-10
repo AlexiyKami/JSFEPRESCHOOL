@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Merriweather:wght@400;700&family=Roboto&display=swap');
 
+:root {
+    --color-gold: #BDAE82;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -35,7 +39,7 @@ body {
     margin: 0 auto;
     
 }
-
+/* --------- Header --------- */
 .header {
     position: absolute;
     height: 90px;
@@ -69,7 +73,7 @@ body {
 }
 
 .en {
-    color: #BDAE82;
+    color: var(--color-gold);
 }
 
 .ru {
@@ -100,9 +104,41 @@ body {
     font-size: 20px;
     color: white;
 }
-
+    /* --------- Hero --------- */
 #hero {
     background: url('./assets/img/bg.jpg');
     height: 910px;
+}
+
+.hero-title {
+    position: absolute;
+    left: 80px;
+    top: 250px;
+}
+
+.hero-text {
+    color: white;
+    font-size: 20px;
+    line-height: 200%;
+    position: absolute;
+    top: 380px;
+    left: 80px;
+    width: 470px;
+    height: 120px;
+}
+
+.hero-button {
+    position: absolute;
+    background: var(--color-gold);
+    left: 80px;
+    top: 525px;
+    width: 220px;
+    height: 55px;
+}
+
+.button-text {
+    color: black;
+    font-size: 20px;
+    line-height: 200%;
 }
 
