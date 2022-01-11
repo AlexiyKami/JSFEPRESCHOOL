@@ -59,8 +59,10 @@ body {
 
 /* --------- Header --------- */
 .header {
-    position: absolute;
     height: 90px;
+    background: url('./assets/img/bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center 0;
 }
 
 .header .container {
@@ -125,31 +127,28 @@ body {
     /* --------- Hero --------- */
 #hero {
     background: url('./assets/img/bg.jpg');
-    height: 910px;
+    background-position: center -90px;
+    background-repeat: no-repeat;
+    height: 820px;
+    padding-left: 80px;
 }
 
 .hero-title {
-    position: absolute;
-    left: 80px;
-    top: 250px;
+    padding-top: 160px;
 }
 
 .hero-text {
     color: white;
     font-size: 20px;
     line-height: 200%;
-    position: absolute;
-    top: 380px;
-    left: 80px;
+    padding-top: 10px;
     width: 470px;
     height: 120px;
 }
 
 .hero-button {
-    position: absolute;
     background: var(--color-gold);
-    left: 80px;
-    top: 525px;
+    margin-top: 25px;
     width: 220px;
     height: 55px;
 }
