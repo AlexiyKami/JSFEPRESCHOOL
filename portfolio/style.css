@@ -33,7 +33,35 @@ body {
 .container {
     width: 1440px;
     margin: 0 auto;
-    
+}
+
+/*  Buttons */
+
+.gold-button {
+    background: var(--color-gold);
+    width: 220px;
+    height: 55px;
+}
+
+.gold-button-text {
+    font-family: Inter;
+    color: black;
+    font-size: 20px;
+    line-height: 200%;
+}
+
+.black-button{
+    background: black;
+    border: 2px solid var(--color-gold);
+    width: 220px;
+    height: 55px;
+}
+
+.black-button-text {
+    font-family: Inter;
+    color: var(--color-gold);
+    font-size: 20px;
+    line-height: 200%;
 }
 
 /* Titles with gold line */
@@ -45,6 +73,7 @@ body {
     color: var(--color-gold);
     font-weight: 700;
     margin-top: 100px;
+    margin-bottom: 60px;
     text-align: center;
     background: url('./assets/svg/section-title-line.svg');
     background-repeat: no-repeat;
@@ -142,22 +171,11 @@ body {
     font-size: 20px;
     line-height: 200%;
     padding-top: 10px;
+    padding-bottom: 25px;
     width: 470px;
     height: 120px;
 }
 
-.hero-button {
-    background: var(--color-gold);
-    margin-top: 25px;
-    width: 220px;
-    height: 55px;
-}
-
-.hero-button-text {
-    color: black;
-    font-size: 20px;
-    line-height: 200%;
-}
     /* --------- Skills --------- */
 
 .skill-item img {
@@ -198,9 +216,27 @@ body {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    margin-top: 60px;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 2px;
     text-align: center;
+}
+
+/* --------- Portfolio --------- */
+
+.portfolio-btns {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 5px;
+}
+
+.portfolio-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 60px;
+    gap: 25px;
+    
 }
