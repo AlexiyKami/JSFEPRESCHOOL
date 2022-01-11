@@ -240,6 +240,8 @@ body {
     gap: 25px;
 }
 
+/* --------- Video --------- */
+
 .video-player {
     display: flex;
     justify-content: center;
@@ -249,3 +251,55 @@ body {
 .video-player #play-button {
     position: absolute;
 }
+
+/* --------- Price --------- */
+
+.price-title {
+    font-family: Merriweather;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 200%;
+    color: white;
+    margin-top: 43px; 
+}
+
+.price {
+    font-family: Merriweather;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 200%;
+    color: var(--color-gold);
+    margin: 20px auto;
+}
+
+.price-text {
+    display: block;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 200%;
+    color: white;
+}
+
+.price-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    gap: 25px;
+}
+
+.price-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    height: 505px;
+    border: 3px solid var(--color-gold);
+}
+
+.price-item button {
+    margin-top: 40px;
+}
+
