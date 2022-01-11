@@ -238,5 +238,14 @@ body {
     justify-content: center;
     margin-top: 60px;
     gap: 25px;
-    
+}
+
+.video-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-player #play-button {
+    position: absolute;
 }
