@@ -251,6 +251,8 @@ body {
 
 .video-player #play-button {
     position: absolute;
+    background-color: transparent;
+    border: none;
 }
 
 /* --------- Price --------- */
