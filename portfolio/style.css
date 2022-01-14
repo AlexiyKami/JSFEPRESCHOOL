@@ -46,10 +46,7 @@ body {
     background: var(--color-gold);
     width: 220px;
     height: 55px;
-}
-
-.gold-button-text {
-    font-family: Inter;
+    font-family: inherit;
     color: black;
     font-size: 20px;
     line-height: 200%;
@@ -60,10 +57,7 @@ body {
     border: 2px solid var(--color-gold);
     width: 220px;
     height: 55px;
-}
-
-.black-button-text {
-    font-family: Inter;
+    font-family: inherit;
     color: var(--color-gold);
     font-size: 20px;
     line-height: 200%;
