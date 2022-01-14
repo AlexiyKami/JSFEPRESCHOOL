@@ -13,6 +13,11 @@ html {
 a {
     text-decoration: none;
     color: white;
+    transition: color 0.4s;
+}
+
+a:hover {
+    color: var(--color-gold);
 }
 
 h1 {
@@ -42,6 +47,14 @@ body {
 
 /*  Buttons */
 
+button {
+    transition: color 0.4s;
+}
+
+button:hover {
+    color: white;
+}
+
 .gold-button {
     background: var(--color-gold);
     width: 220px;
@@ -50,6 +63,7 @@ body {
     color: black;
     font-size: 20px;
     line-height: 200%;
+    
 }
 
 .black-button{
@@ -145,6 +159,11 @@ body {
 .nav ul li a {
     text-decoration: none;
     color: white;
+}
+
+.nav ul li a:hover {
+    transition: color 0.4s;
+    color:var(--color-gold)
 }
 
 .nav {
@@ -253,6 +272,15 @@ body {
     position: absolute;
     background-color: transparent;
     border: none;
+}
+
+.video-player #play-button img {
+    transition: 0.4s;
+}
+
+.video-player #play-button img:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 /* --------- Price --------- */
@@ -414,4 +442,13 @@ textarea {
 
 .social-list ul li:first-child {
     margin-top: 3px;
+}
+
+.social-list ul li a img {
+    transition: 0.4s;
+}
+
+.social-list ul li a img:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
