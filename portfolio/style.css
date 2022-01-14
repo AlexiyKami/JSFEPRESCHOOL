@@ -10,6 +10,11 @@ html {
     scroll-behavior: smooth;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
 h1 {
     font-size: 60px;
     font-family: Merriweather;
@@ -306,7 +311,7 @@ body {
     margin-top: 40px;
 }
 
-/* --------- Price --------- */
+/* --------- Contacts --------- */
 
 .contacts-section {
     display: flex;
@@ -368,3 +373,49 @@ textarea {
     margin-top: 10px;
 }
 
+/* --------- Footer --------- */
+
+.footer {
+    font-family: Inter;
+    font-size: 20px;
+    line-height: 250%;
+    color: white;
+    font-size: 20px;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 50px;
+    padding-top: 50px;
+}
+
+.footer-data {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    width: 182px;
+    height: 50px;
+}
+
+.footer-data a {
+    padding-right: 13px;
+}
+
+.social-list ul {
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 20px;
+    width: 188px;
+    height: 50px;
+}
+
+.social-list ul img {
+    margin-bottom: 5px;
+}
+
+.social-list ul li:first-child {
+    margin-top: 3px;
+}
