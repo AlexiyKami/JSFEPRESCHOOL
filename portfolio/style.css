@@ -63,7 +63,7 @@ button:hover {
     color: black;
     font-size: 20px;
     line-height: 200%;
-    
+    border: none;
 }
 
 .black-button{
@@ -291,7 +291,7 @@ button:hover {
     font-size: 28px;
     line-height: 200%;
     color: white;
-    margin-top: 43px; 
+    margin-top: 40px; 
 }
 
 .price {
@@ -327,8 +327,9 @@ button:hover {
     flex-direction: column;
     align-items: center;
     width: 450px;
-    height: 500px;
+    height: 505px;
     border: 3px solid var(--color-gold);
+    box-sizing: border-box;
 }
 
 .price-item button {
