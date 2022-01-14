@@ -414,6 +414,7 @@ textarea {
     justify-content: space-between;
     height: 50px;
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .footer-data {
