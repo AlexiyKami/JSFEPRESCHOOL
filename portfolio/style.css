@@ -34,14 +34,8 @@ body {
     font-family: Inter;
 }
 
-/* .wrapper {
-    position: relative;
-    width: 1440px;
-    margin: 0 auto;
-} */
-
 .container {
-    width: 1440px;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -102,7 +96,6 @@ button:hover {
 /* --------- Header --------- */
 
 .header .container {
-    height: 90px;
     background: url('./assets/img/bg.jpg');
     background-repeat: no-repeat;
     background-position: center 0;
@@ -174,7 +167,6 @@ button:hover {
     background: url('./assets/img/bg.jpg');
     background-position: center -90px;
     background-repeat: no-repeat;
-    height: 820px;
     padding-left: 80px;
 }
 
@@ -190,6 +182,10 @@ button:hover {
     padding-bottom: 25px;
     width: 470px;
     height: 120px;
+}
+
+.hero-section {
+    padding-bottom: 330px;
 }
 
     /* --------- Skills --------- */
@@ -225,14 +221,13 @@ button:hover {
     flex-direction: column;
     justify-content: space-between;
     width: 320px;
-    height: 240px;
 }
 
 .skills-items {
     height: 242px;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-left: 20px;
     margin-right: 20px;
@@ -245,6 +240,7 @@ button:hover {
 .portfolio-btns {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     margin: 0 auto;
     gap: 5px;
 }
@@ -314,6 +310,7 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 100px;
@@ -325,9 +322,9 @@ button:hover {
     flex-direction: column;
     align-items: center;
     width: 450px;
-    height: 505px;
     border: 3px solid var(--color-gold);
     box-sizing: border-box;
+    padding-bottom: 41px;
 }
 
 .price-item button {
@@ -343,13 +340,12 @@ button:hover {
     background: url("assets/img/contacts.jpg");
     background-size: auto 700px;
     background-position: center center;
-    height: 700px;
+    padding-bottom: 195px;
 }
 
 .contacts-items {
     display: flex;
     flex-direction: column;
-    height: 450px;
     width: 445px;
     margin-top: 60px;
     margin-right: 25px; 
@@ -410,7 +406,6 @@ textarea {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 50px;
     padding-top: 50px;
     padding-bottom: 50px;
 }
@@ -420,7 +415,6 @@ textarea {
     justify-content: space-between;
     margin-left: 20px;
     width: 182px;
-    height: 50px;
 }
 
 .footer-data a {
@@ -433,7 +427,6 @@ textarea {
     justify-content: space-between;
     padding-right: 20px;
     width: 188px;
-    height: 50px;
 }
 
 .social-list ul img {
