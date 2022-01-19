@@ -198,6 +198,7 @@ button:hover {
 
 .skill-item img {
     margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 .skill-title {
@@ -209,6 +210,7 @@ button:hover {
     margin: 0 auto;
     width: 280px;
     margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .skill-text {
@@ -227,10 +229,10 @@ button:hover {
     flex-direction: column;
     justify-content: space-between;
     width: 320px;
+    
 }
 
 .skills-items {
-    height: 242px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -266,7 +268,12 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: url('./assets/video/video-player.jpg');
+    height: 705px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
 
 .video-player #play-button {
     position: absolute;
