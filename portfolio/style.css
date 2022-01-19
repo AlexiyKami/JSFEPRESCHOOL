@@ -34,11 +34,11 @@ body {
     font-family: Inter;
 }
 
-.wrapper {
+/* .wrapper {
     position: relative;
     width: 1440px;
     margin: 0 auto;
-}
+} */
 
 .container {
     width: 1440px;
@@ -100,14 +100,12 @@ button:hover {
 
 
 /* --------- Header --------- */
-.header {
+
+.header .container {
     height: 90px;
     background: url('./assets/img/bg.jpg');
     background-repeat: no-repeat;
     background-position: center 0;
-}
-
-.header .container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
