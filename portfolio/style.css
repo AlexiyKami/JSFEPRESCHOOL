@@ -129,6 +129,7 @@ button:hover {
     font-size: 20px;
     font-weight: bold;
     color: white;
+    margin-right: 20px;
 }
 
 .en {
@@ -136,7 +137,7 @@ button:hover {
 }
 
 .ru {
-    margin-right: 20px;
+    
 }
 
 .slash {
@@ -168,6 +169,7 @@ button:hover {
     font-size: 20px;
     color: white;
 }
+
     /* --------- Hero --------- */
 #hero {
     background: url('./assets/img/bg.jpg');
@@ -457,4 +459,40 @@ textarea {
 .social-list ul li a img:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
+}
+
+/* --------- Hamburger icon --------- */
+
+.hamburger {
+    display: block;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    margin-right: 64px;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 50px;
+    height: 3px;
+    margin: 9px 0;
+    background-color: white;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    transform: rotate(-45deg) translate(-8px,9px) ;
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: rotate(45deg) translate(-8px,-9px) ;
+}
+
+/* --------- Tablet ruleset --------- */
+
+@media (max-width: 768px) {
+    
 }
