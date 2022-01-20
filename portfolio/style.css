@@ -627,7 +627,7 @@ textarea {
         margin-bottom: 55px;
     }
 
-/* --------- Video (tablet) --------- */ 
+/* --------- Contacts (tablet) --------- */ 
 
     .contacts-section {
         align-items: center;
@@ -647,4 +647,26 @@ textarea {
     .contacts-title {
         font-size: 32px;
     }
+
+/* --------- Footer (tablet) --------- */     
+
+
+    .footer .container {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 15px;
+        padding-bottom: 25px;
+    }
+
+    .footer-data {
+        margin-left: 10px;
+        margin-bottom: -10px;
+    }
+
+
+    .social-list ul {
+        margin-top: 8px;
+        padding-right: 0px;
+    }
+    
 }
