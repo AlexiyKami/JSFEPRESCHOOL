@@ -611,4 +611,40 @@ textarea {
         height: 75px;
     }
 
+/* --------- Video (tablet) --------- */  
+
+    #price .section-title {
+        margin-bottom: 70px;
+    }
+
+    .price-item {
+        width: 420px;
+        margin-bottom: 25px;
+        padding-bottom: 40px;
+    }
+
+    .price-items {
+        margin-bottom: 55px;
+    }
+
+/* --------- Video (tablet) --------- */ 
+
+    .contacts-section {
+        align-items: center;
+        background: url("assets/img/contacts-tablet.jpg");
+        background-size: auto 600px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        padding-bottom: 111px;
+    }
+
+    .contacts-items {
+        align-items: center;
+        padding-top: 0px;
+        margin-right: 0px;
+    }
+
+    .contacts-title {
+        font-size: 32px;
+    }
 }
