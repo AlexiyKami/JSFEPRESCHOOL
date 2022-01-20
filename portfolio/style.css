@@ -273,7 +273,9 @@ button:hover {
 
 .video-player #play-button {
     position: absolute;
-    background-color: transparent;
+    width: 130px;
+    height: 130px;
+    background: url("assets/video/Play_hover.svg");
     border: none;
 }
 
@@ -470,24 +472,41 @@ textarea {
     height: 3px;
     margin: 10px 0;
     background-color: white;
-    transition: 0.4s;
+    transition: 0.5s;
 }
 
 .change .bar1 {
-    transform: rotate(-45deg) translate(-8px,9px) ;
+    transform: rotate(-45deg) translate(-9px,9px) ;
 }
 
 .change .bar2 {
     opacity: 0;
+    transition: 0.2s;
 }
 
 .change .bar3 {
-    transform: rotate(45deg) translate(-8px,-9px) ;
+    transform: rotate(45deg) translate(-9px,-9px) ;
 }
 
 /* --------- Tablet ruleset --------- */
 
 @media (max-width: 768px) {
+    h1 {
+        font-size: 32px;
+        font-weight: 400;
+    }
+
+    .section-title {
+        margin-top: 100px;
+        margin-bottom: 65px;
+        font-size: 32px;
+        line-height: 40.22px;
+        background: url('./assets/svg/section-title-line-tablet.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+/* --------- Header (tablet) --------- */
 
     .logo {
         margin-left: 60px;
@@ -514,7 +533,7 @@ textarea {
         background-position: center 0;
         background-repeat: no-repeat;
     }
-
+/* --------- Hero (tablet) --------- */
     #hero {
         background: url('./assets/img/bg-tablet.jpg');
         background-position: center -90px;
@@ -534,13 +553,62 @@ textarea {
         padding-bottom: 152px;
     }
 
-    h1 {
-        font-size: 32px;
-        font-weight: 400;
+/* --------- Skills (tablet) --------- */
+
+    .skill-item img {
+        margin-top: 1px;
+        margin-bottom: 0px;
     }
 
-    .section-title {
-        margin-top: 80px;
-        margin-bottom: 36px;
+    .skill-title {
+        margin-top: 30px;
     }
+
+    .skill-text {
+        line-height: 21.78px;
+        margin-bottom: 40px;
+    }
+
+    .skills-items {
+        justify-content: center;
+        column-gap: 44px;
+        row-gap: 36px;
+        margin-bottom: 140px;
+    }
+
+    .skill-item {
+        width: 300px;
+        height: 224px;
+        margin-right: 2px;
+    }
+
+/* --------- Portfolio (tablet) --------- */
+
+    #portfolio .section-title {
+        margin-bottom: 70px;
+    }
+
+    .portfolio-btns {
+        width: 445px;
+    }
+
+/* --------- Video (tablet) --------- */    
+
+    #video .section-title {
+        margin-bottom: 70px;
+    }
+
+    .video-player {
+        height: 418px;
+        background: url('./assets/video/video-player-tablet.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .video-player #play-button {
+        background: url("assets/video/play-hover-tablet.svg");
+        width: 75px;
+        height: 75px;
+    }
+
 }
