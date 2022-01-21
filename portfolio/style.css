@@ -100,6 +100,10 @@ button:hover {
     display: none;
 }
 
+.active {
+    display: none;
+}
+
 .header .container {
     background: url('./assets/img/bg.jpg');
     background-repeat: no-repeat;
@@ -523,7 +527,7 @@ textarea {
 
     .menu {
         display: block;
-        position: absolute;
+        position: fixed;
         top: 0;
         right: -620px;
         width: calc(100% - 148px); 
@@ -534,7 +538,8 @@ textarea {
     }
 
     .active {
-        position: absolute;
+        display: block;
+        position: fixed;
         top: 0;
         right: 0;
         width: calc(100% - 148px); 
@@ -719,5 +724,43 @@ textarea {
     .social-list ul {
         margin-top: 8px;
         padding-right: 0px;
+    }
+}
+
+@media (max-width: 619px) {
+    .menu,
+    .active {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .logo {
+        margin-left: 20px;
+    }
+    .hamburger {
+        margin-right: 40px;
+    }
+    
+    .hero-text {
+        width: 250px;
+    }
+
+    .portfolio-btns {
+        width: 300px;
+    }
+    
+    .portfolio-items img {
+        width: 100%;
+    }
+
+    .contacts-items {
+        width: 300px;
+    }
+
+    .contacts-items input,
+    .contacts-items textarea {
+        width: 250px;
     }
 }
