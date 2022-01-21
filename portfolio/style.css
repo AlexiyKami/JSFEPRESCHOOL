@@ -32,6 +32,7 @@ h1 {
 body {
     background-color: black;
     font-family: Inter;
+    overflow-x: hidden;
 }
 
 .container {
@@ -94,6 +95,10 @@ button:hover {
 
 
 /* --------- Header --------- */
+
+.menu {
+    display: none;
+}
 
 .header .container {
     background: url('./assets/img/bg.jpg');
@@ -457,40 +462,48 @@ textarea {
     contrast(87%);
 }
 
-/* --------- Hamburger icon --------- */
-
-.hamburger {
-    display: none;
-    cursor: pointer;
-    width: 50px;
-    height: 50px;
-    margin-right: 64px;
-}
-
-.bar1, .bar2, .bar3 {
-    width: 50px;
-    height: 3px;
-    margin: 10px 0;
-    background-color: white;
-    transition: 0.5s;
-}
-
-.change .bar1 {
-    transform: rotate(-45deg) translate(-9px,9px) ;
-}
-
-.change .bar2 {
-    opacity: 0;
-    transition: 0.2s;
-}
-
-.change .bar3 {
-    transform: rotate(45deg) translate(-9px,-9px) ;
-}
-
 /* --------- Tablet ruleset --------- */
 
 @media (max-width: 768px) {
+
+/* --------- Hamburger icon --------- */
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+        margin-right: 64px;
+        z-index: 15;
+        width: 50px;
+    }
+
+    .bar1, .bar2, .bar3 {
+        width: 50px;
+        height: 2px;
+        margin: 5px 0;
+        z-index: 15;
+        background-color: white;
+        transition: 0.5s;
+    }
+
+    .change .bar1 {
+        transform: rotate(-45deg) translate(-8px,9px) ;
+        width: 120%;
+    }
+
+    .change .bar2 {
+        opacity: 0;
+        transition: 0.2s;
+    }
+
+    .change .bar3 {
+        transform: rotate(45deg) translate(-8px,-9px) ;
+        width: 120%;
+    }
+    
     h1 {
         font-size: 32px;
         font-weight: 400;
@@ -507,6 +520,44 @@ textarea {
     }
 
 /* --------- Header (tablet) --------- */
+
+    .menu {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -620px;
+        width: calc(100% - 148px); 
+        height: 1024px;
+        background-color: black;
+        margin-left: auto;
+        transition: 0.5s;
+    }
+
+    .active {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(100% - 148px); 
+        height: 1024px;
+        background-color: black;
+        margin-left: auto;
+        transition: 0.5s;
+    }
+
+    .menu ul,
+    .active ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: 134px;
+        margin-left: 127px;
+    }
+
+    .menu ul li,
+    .active ul li {
+        font-size: 32px;
+        line-height: 73px;
+        margin-bottom: 16px;
+    }
 
     .logo {
         margin-left: 60px;
@@ -525,7 +576,7 @@ textarea {
     }
 
     .hamburger {
-        display: block;
+        display: flex;
     }
 
     .header .container {
@@ -574,18 +625,20 @@ textarea {
         column-gap: 44px;
         row-gap: 36px;
         margin-bottom: 140px;
+        margin-left: 0px;
+        margin-right: 4px;
     }
 
     .skill-item {
         width: 300px;
         height: 224px;
-        margin-right: 2px;
+
     }
 
 /* --------- Portfolio (tablet) --------- */
 
     #portfolio .section-title {
-        margin-bottom: 70px;
+        margin-bottom: 71px;
     }
 
     .portfolio-btns {
@@ -595,7 +648,7 @@ textarea {
 /* --------- Video (tablet) --------- */    
 
     #video .section-title {
-        margin-bottom: 70px;
+        margin-bottom: 69px;
     }
 
     .video-player {
@@ -663,10 +716,8 @@ textarea {
         margin-bottom: -10px;
     }
 
-
     .social-list ul {
         margin-top: 8px;
         padding-right: 0px;
     }
-    
 }
