@@ -1,4 +1,4 @@
-console.log("Score: 110 \nValidator: + 10\nSemantic layout: + 20\nLayout matches pattern: + 48\nCSS requirements: + 12\nInteractivity: + 20");
+console.log("Score: 85 \nLayout matches pattern(768px): + 48\n>320px has no horizontal scroll bar: + 15\nAdaptive menu: + 22");
 
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
