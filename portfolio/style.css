@@ -72,6 +72,22 @@ button:hover {
     line-height: 200%;
 }
 
+.portfolio-btn {
+    background: black;
+    border: 2px solid var(--color-gold);
+    width: 220px;
+    height: 55px;
+    font-family: inherit;
+    color: var(--color-gold);
+    font-size: 20px;
+    line-height: 200%;
+}
+
+.portfolio-btn.active {
+    background: var(--color-gold);
+    color: black;
+}
+
 /* Titles with gold line */
 
 .section-title {
@@ -100,7 +116,7 @@ button:hover {
     display: none;
 }
 
-.active {
+.active-menu {
     display: none;
 }
 
@@ -537,7 +553,7 @@ textarea {
         transition: 0.5s;
     }
 
-    .active {
+    .active-menu {
         display: block;
         position: fixed;
         top: 0;
@@ -550,7 +566,7 @@ textarea {
     }
 
     .menu ul,
-    .active ul {
+    .active-menu ul {
         display: flex;
         flex-direction: column;
         margin-top: 134px;
@@ -558,7 +574,7 @@ textarea {
     }
 
     .menu ul li,
-    .active ul li {
+    .active-menu ul li {
         font-size: 35px;
         line-height: 73px;
         margin-bottom: 16px;
@@ -730,7 +746,7 @@ textarea {
 
 @media (max-width: 619px) {
     .menu,
-    .active {
+    .active-menu {
         width: 100%;
     }
 }

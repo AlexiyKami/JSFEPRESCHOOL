@@ -7,7 +7,7 @@ const menuLinks = document.querySelectorAll('.menu ul li a');
 function toggleMenu() {
   hamburger.classList.toggle('change');
   menu.classList.contains('menu') ? menu.classList.remove('menu') : menu.classList.add('menu');
-  menu.classList.toggle('active');
+  menu.classList.toggle('active-menu');
 }
 
 menuLinks.forEach((i) => i.addEventListener('click',toggleMenu));
@@ -36,8 +36,23 @@ function preloadSummerImages() {
     for (let i=0; i < portfolioImages.length;i++) {
       let img = new Image();
       img.src = `./assets/img/${season}/${i + 1}.jpg`
-      console.log(img);
     }
   });
 }
+
 preloadSummerImages();
+
+// -------------active button-------------
+
+  
+  
+
+function changeClassActive(className) {
+  const classes = document.querySelectorAll(`.${className}`);
+  classes.forEach(x => x.addEventListener("click", () =>  {
+    classes.forEach(y => y.classList.remove('active'));
+    x.classList.add('active');
+  }));
+}
+
+changeClassActive('portfolio-btn');
