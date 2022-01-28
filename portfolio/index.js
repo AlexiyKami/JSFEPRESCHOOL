@@ -34,7 +34,7 @@ portfolioBtns.addEventListener("click", changeImage);
 const seasons = ['winter', 'spring', 'summer', 'autumn'];
 
 function preloadSummerImages() {
-  seasons.forEach((season,index) => {
+  seasons.forEach((season) => {
     for (let i=0; i < portfolioImages.length;i++) {
       let img = new Image();
       img.src = `./assets/img/${season}/${i + 1}.jpg`
@@ -60,10 +60,7 @@ changeClassActive('portfolio-btn');
 
 function getTranslate(lang) {
   let elements = document.querySelectorAll('[data-i18]');
-  elements.forEach(elem => {
-    elem.textContent = i180bj[lang][elem.dataset.i18];
-    elem.textContent = i180bj[lang][elem.dataset.i18];
-  })
+  elements.forEach(elem => elem.textContent = i180bj[lang][elem.dataset.i18])
 }
 
 function switchLng(event) {
@@ -74,7 +71,31 @@ function switchLng(event) {
     getTranslate('en');
   }
 }
+
 changeClassActive('lng-btn');
 const lngBtns = document.querySelector('.switch-lng');
-lngBtns.addEventListener("click", switchLng, false)
+lngBtns.addEventListener("click", switchLng, false);
 
+// -------------light-theme-------------
+
+
+const lightElements = document.querySelectorAll('.section-title');
+
+function changeLightTheme(event) {
+  lightElements.forEach(elem => elem.classList.toggle('light-theme'))
+  if(!event.target.classList.contains('active')) {
+    document.getElementById("switch-theme").src = 'assets/svg/moon.svg';
+    event.target.classList.add('active');
+    document.documentElement.style.setProperty('--color-bg', '#fff');
+    document.documentElement.style.setProperty('--color-font-gold', '#000');
+    document.documentElement.style.setProperty('--color-font-white', '#000'); 
+  } else {
+    event.target.classList.remove('active');
+    document.getElementById("switch-theme").src = 'assets/svg/sun.svg';
+    document.documentElement.style.setProperty('--color-bg', '#000');
+    document.documentElement.style.setProperty('--color-font-gold', '#BDAE82');
+    document.documentElement.style.setProperty('--color-font-white', '#fff');
+  }
+}
+const switchThemeBtn = document.querySelector('.switch-theme');
+switchThemeBtn.addEventListener("click", changeLightTheme);
