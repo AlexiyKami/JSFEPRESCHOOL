@@ -1,5 +1,8 @@
 import i180bj from './translate.js';
 
+let lang = "en";
+let theme = "dark";
+
 console.log("Score: 85 \nLayout matches pattern(768px): + 48\n>320px has no horizontal scroll bar: + 15\nAdaptive menu: + 22");
 // -------------hamburger menu-------------
 const hamburger = document.querySelector('.hamburger');
@@ -58,9 +61,12 @@ changeClassActive('portfolio-btn');
 
 // -------------translate-------------
 
-function getTranslate(lang) {
+function getTranslate(language) {
+  const lng = document.querySelectorAll(`.${language}`);
+  lng.forEach(elem => elem.classList.add('active'))
   let elements = document.querySelectorAll('[data-i18]');
-  elements.forEach(elem => elem.textContent = i180bj[lang][elem.dataset.i18])
+  elements.forEach(elem => elem.textContent = i180bj[language][elem.dataset.i18])
+  lang = language;
 }
 
 function switchLng(event) {
@@ -78,24 +84,63 @@ lngBtns.addEventListener("click", switchLng, false);
 
 // -------------light-theme-------------
 
-
 const lightElements = document.querySelectorAll('.section-title');
 
 function changeLightTheme(event) {
   lightElements.forEach(elem => elem.classList.toggle('light-theme'))
   if(!event.target.classList.contains('active')) {
-    document.getElementById("switch-theme").src = 'assets/svg/moon.svg';
     event.target.classList.add('active');
+    theme = 'light';
+  } else {
+    event.target.classList.remove('active');
+    theme = 'dark';
+  }
+  switchTheme(theme);
+
+}
+
+function switchTheme(theme) {
+  if(theme === "light") {
+    document.getElementById("switch-theme").classList.add('active');
+    document.getElementById("switch-theme").src = 'assets/svg/moon.svg';
     document.documentElement.style.setProperty('--color-bg', '#fff');
     document.documentElement.style.setProperty('--color-font-gold', '#000');
     document.documentElement.style.setProperty('--color-font-white', '#000'); 
-  } else {
-    event.target.classList.remove('active');
+  }
+  if (theme === "dark") {
     document.getElementById("switch-theme").src = 'assets/svg/sun.svg';
     document.documentElement.style.setProperty('--color-bg', '#000');
     document.documentElement.style.setProperty('--color-font-gold', '#BDAE82');
     document.documentElement.style.setProperty('--color-font-white', '#fff');
   }
-}
+}  
 const switchThemeBtn = document.querySelector('.switch-theme');
 switchThemeBtn.addEventListener("click", changeLightTheme);
+
+function setLocalStorage() {
+  localStorage.setItem('lang', lang);
+  if(document.getElementById("switch-theme").classList.contains('active')) {
+    localStorage.setItem('theme', 'light');
+  }
+  else {
+    localStorage.setItem('theme', 'dark');
+  }
+}
+
+window.addEventListener('beforeunload',setLocalStorage);
+
+function getLocalStorage() {
+  if(localStorage.getItem('lang')) {
+    const lang = localStorage.getItem('lang');
+    getTranslate(lang);
+  }
+
+  if(localStorage.getItem('theme')) {
+    const theme = localStorage.getItem('theme');
+    switchTheme(theme);
+  }
+
+}
+
+window.addEventListener('load', getLocalStorage)
+
