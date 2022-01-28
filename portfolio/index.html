@@ -17,17 +17,20 @@
             </div>
             <nav class="nav">
                 <ul>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#video">Video</a></li>
-                    <li><a href="#price">Price</a></li>
-                    <li><a href="#contacts">Contacts</a></li>
+                    <li><a href="#skills" data-i18="skills">Skills</a></li>
+                    <li><a href="#portfolio" data-i18="portfolio">Portfolio</a></li>
+                    <li><a href="#video" data-i18="video">Video</a></li>
+                    <li><a href="#price" data-i18="price">Price</a></li>
+                    <li><a href="#contacts" data-i18="contacts">Contacts</a></li>
                 </ul>
             </nav>
             <div class="switch-lng">
-                <div class="en">en</div>
+                <div class="en lng-btn">en</div>
                 <div class="slash">/</div>
-                <div class="ru">ru</div>
+                <div class="ru lng-btn">ru</div>
+            </div>
+            <div class="switch-theme">
+                <img src="assets/svg/sun.svg" id='switch-theme' alt="Switch Theme">
             </div>
             <div class="hamburger">
                 <div class="bar1"></div>
@@ -36,11 +39,11 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#video">Video</a></li>
-                    <li><a href="#price">Price</a></li>
-                    <li><a href="#contacts">Contacts</a></li>
+                    <li><a href="#skills" data-i18="skills">Skills</a></li>
+                    <li><a href="#portfolio" data-i18="portfolio">Portfolio</a></li>
+                    <li><a href="#video" data-i18="video">Video</a></li>
+                    <li><a href="#price" data-i18="price">Price</a></li>
+                    <li><a href="#contacts" data-i18="contacts">Contacts</a></li>
                 </ul>
             </div>
         </div>
@@ -48,103 +51,103 @@
     <main class="main">
         <div class="container">
             <section class="hero-section" id="hero">
-                <h1 class="hero-title">Alexa Rise</h1>
-                <p class="hero-text">
+                <h1 class="hero-title" data-i18="hero-title">Alexa Rise</h1>
+                <p class="hero-text" data-i18="hero-text">
                     Save sincere emotions, romantic feelings and happy moments of life together with professional photographer Alexa Rise
                 </p>
-                <button class="gold-button">Hire me</button>
+                <button class="gold-button pulse" data-i18="hire">Hire me</button>
             </section>
             <section class="skills-section" id="skills">
-                <h2 class="section-title"><span>Skills</span></h2>
+                <h2 class="section-title"><span data-i18="skills">Skills</span></h2>
                 <div class="skills-items">
                     <div class="skill-item">
                         <img src="assets/svg/camera.svg" alt="camera" width="62" height="50">
-                        <h3 class="skill-title">Digital photography</h3>
-                        <p class="skill-text">High-quality photos in the studio and on the nature</p>
+                        <h3 class="skill-title" data-i18="skill-title-1">Digital photography</h3>
+                        <p class="skill-text" data-i18="skill-text-1">High-quality photos in the studio and on the nature</p>
                     </div>
                     <div class="skill-item">
                         <img src="assets/svg/video.svg" alt="video">
-                        <h3 class="skill-title">Video shooting</h3>
-                        <p class="skill-text">Capture your moments so that they always stay with you</p>
+                        <h3 class="skill-title" data-i18="skill-title-2">Video shooting</h3>
+                        <p class="skill-text" data-i18="skill-text-2">Capture your moments so that they always stay with you</p>
                     </div>
                     <div class="skill-item">
                         <img src="assets/svg/image.svg" alt="retouch">
-                        <h3 class="skill-title">Retouch</h3>
-                        <p class="skill-text">I strive to make photography surpass reality</p>
+                        <h3 class="skill-title" data-i18="skill-title-3">Retouch</h3>
+                        <p class="skill-text" data-i18="skill-text-3">I strive to make photography surpass reality</p>
                     </div>
                     <div class="skill-item">
                         <img src="assets/svg/mic.svg" alt="audio">
-                        <h3 class="skill-title">Audio</h3>
-                        <p class="skill-text">Professional sounds recording for video, advertising, portfolio</p>
+                        <h3 class="skill-title" data-i18="skill-title-4">Audio</h3>
+                        <p class="skill-text" data-i18="skill-text-4">Professional sounds recording for video, advertising, portfolio</p>
                     </div>
                 </div>
             </section>
             <section class="portfolio-section" id="portfolio">
-                <h2 class="section-title"><span>Portfolio</span></h2>
+                <h2 class="section-title"><span data-i18="portfolio">Portfolio</span></h2>
                 <div class="portfolio-btns">
-                    <button class="black-button">Winter</button>
-                    <button class="black-button">Spring</button>
-                    <button class="black-button">Summer</button>
-                    <button class="gold-button">Autumn</button>
+                    <button class="portfolio-btn pulse" data-season="winter" data-i18="winter">Winter</button>
+                    <button class="portfolio-btn pulse" data-season="spring" data-i18="spring">Spring</button>
+                    <button class="portfolio-btn pulse" data-season="summer" data-i18="summer">Summer</button>
+                    <button class="portfolio-btn pulse active" data-season="autumn" data-i18="autumn">Autumn</button>
                 </div>
                 <div class="portfolio-items">
-                    <img src="assets/img/portfolio-img.jpg" alt="img1">
-                    <img src="assets/img/portfolio-img-1.jpg" alt="img2">
-                    <img src="assets/img/portfolio-img-2.jpg" alt="img3">
-                    <img src="assets/img/portfolio-img-3.jpg" alt="img4">
-                    <img src="assets/img/portfolio-img-4.jpg" alt="img5">
-                    <img src="assets/img/portfolio-img-5.jpg" alt="img6">
+                    <img src="assets/img/autumn/1.jpg" alt="img1" class="portfolio-img">
+                    <img src="assets/img/autumn/2.jpg" alt="img2" class="portfolio-img">
+                    <img src="assets/img/autumn/3.jpg" alt="img3" class="portfolio-img">
+                    <img src="assets/img/autumn/4.jpg" alt="img4" class="portfolio-img">
+                    <img src="assets/img/autumn/5.jpg" alt="img5" class="portfolio-img">
+                    <img src="assets/img/autumn/6.jpg" alt="img6" class="portfolio-img">
                 </div>
             </section>
             <section class="video-section" id="video">
-                <h2 class="section-title"><span>Video</span></h2>
+                <h2 class="section-title"><span data-i18="video">Video</span></h2>
                 <div class="video-player">
                     <button id="play-button">
                     </button>
                 </div>
             </section>
             <section class="price-section" id="price">
-                <h2 class="section-title"><span>Price</span></h2>
+                <h2 class="section-title"><span data-i18="price">Price</span></h2>
                 <div class="price-items">
                     <div class="price-item">
                         <h3 class="price-title">Standard</h3>
                         <h3 class="price">500 $</h3>
-                        <span class="price-text">One location</span>
-                        <span class="price-text">120 photos in color</span>
-                        <span class="price-text">12 photos in retouch</span>
-                        <span class="price-text">Readiness 2-3 weeks</span>
-                        <span class="price-text">Make up, visage</span>
-                        <button class="gold-button">Order shooting</button>
+                        <span class="price-text" data-i18="price-description-1-span-1">One location</span>
+                        <span class="price-text" data-i18="price-description-1-span-2">120 photos in color</span>
+                        <span class="price-text" data-i18="price-description-1-span-3">12 photos in retouch</span>
+                        <span class="price-text" data-i18="price-description-1-span-4">Readiness 2-3 weeks</span>
+                        <span class="price-text" data-i18="price-description-1-span-5">Make up, visage</span>
+                        <button class="gold-button pulse" data-i18="order">Order shooting</button>
                     </div>
                     <div class="price-item">
                         <h3 class="price-title">Premium</h3>
                         <h3 class="price">700 $</h3>
-                        <span class="price-text">One or two locations</span>
-                        <span class="price-text">200 photos in color</span>
-                        <span class="price-text">20 photos in retouch</span>
-                        <span class="price-text">Readiness 1-2 weeks</span>
-                        <span class="price-text">Make up, visage</span>
-                        <button class="gold-button">Order shooting</button>
+                        <span class="price-text" data-i18="price-description-2-span-1">One or two locations</span>
+                        <span class="price-text" data-i18="price-description-2-span-2">200 photos in color</span>
+                        <span class="price-text" data-i18="price-description-2-span-3">20 photos in retouch</span>
+                        <span class="price-text" data-i18="price-description-2-span-4">Readiness 1-2 weeks</span>
+                        <span class="price-text" data-i18="price-description-2-span-5">Make up, visage</span>
+                        <button class="gold-button pulse" data-i18="order">Order shooting</button>
                     </div>
                     <div class="price-item">
                         <h3 class="price-title">Gold</h3>
                         <h3 class="price">1000 $</h3>
-                        <span class="price-text">Three locations or more</span>
-                        <span class="price-text">300 photos in color</span>
-                        <span class="price-text">50 photos in retouch</span>
-                        <span class="price-text">Readiness 1 week</span>
-                        <span class="price-text">Make up, visage, hairstyle</span>
-                        <button class="gold-button">Order shooting</button>
+                        <span class="price-text" data-i18="price-description-3-span-1">Three locations or more</span>
+                        <span class="price-text" data-i18="price-description-3-span-2">300 photos in color</span>
+                        <span class="price-text" data-i18="price-description-3-span-3">50 photos in retouch</span>
+                        <span class="price-text" data-i18="price-description-3-span-4">Readiness 1 week</span>
+                        <span class="price-text" data-i18="price-description-3-span-5">Make up, visage, hairstyle</span>
+                        <button class="gold-button pulse" data-i18="order">Order shooting</button>
                     </div>
                 </div>
             </section>
             <section class="contacts-section" id="contacts">
                 <div class="contacts-items">
-                    <h2 class="contacts-title">Contact me</h2>
+                    <h2 class="contacts-title" data-i18="contact-me">Contact me</h2>
                     <input type="email" placeholder="E-mail">
                     <input type="tel" placeholder="Phone">
                     <textarea placeholder="Message"></textarea>
-                    <button class="gold-button">Send message</button>
+                    <button class="gold-button pulse" data-i18="send-message">Send message</button>
                 </div>
             </section>
         </div>
@@ -167,7 +170,7 @@
             </div>
         </div>
     </footer>
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 </html>
 

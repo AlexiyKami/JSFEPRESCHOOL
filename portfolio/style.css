@@ -4,6 +4,10 @@
 
 :root {
     --color-gold: #BDAE82;
+    --color-bg: black;
+    --color-font-black: black;
+    --color-font-gold: #BDAE82;
+    --color-font-white: white;
 }
 
 html {
@@ -30,7 +34,7 @@ h1 {
 
 
 body {
-    background-color: black;
+    background-color: var(--color-bg);
     font-family: Inter;
     overflow-x: hidden;
 }
@@ -48,6 +52,15 @@ button {
 
 button:hover {
     color: white;
+}
+
+.pulse:hover, .pulse:focus{
+	box-shadow: 0 0 0 1em rgba(255, 255, 255, 0);
+	animation: pulse 1s;
+}
+
+@keyframes pulse{
+	0%{box-shadow: 0 0 0 0 var(--color-gold)}
 }
 
 .gold-button {
@@ -72,13 +85,34 @@ button:hover {
     line-height: 200%;
 }
 
+.portfolio-btn {
+    background: var(--color-bg);
+    border: 2px solid var(--color-gold);
+    width: 220px;
+    height: 55px;
+    font-family: inherit;
+    color: var(--color-font-gold);
+    font-size: 20px;
+    line-height: 200%;
+}
+
+.portfolio-btn.active {
+    background: var(--color-gold);
+    color: var(--color-font-black);
+    transition: color 0.4s;
+}
+
+.portfolio-btn.active:hover {
+    color: white;
+}
+
 /* Titles with gold line */
 
 .section-title {
     font-size: 40px;
     line-height: 200%;
     font-family: Merriweather;
-    color: var(--color-gold);
+    color: var(--color-font-gold);
     font-weight: 700;
     margin-top: 100px;
     margin-bottom: 60px;
@@ -86,9 +120,15 @@ button:hover {
     background: url('./assets/svg/section-title-line.svg');
     background-repeat: no-repeat;
     background-position: center;
+    
 }
+
+.section-title.light-theme {
+    filter: saturate(0%) invert(0%) sepia(0%) saturate(0%) hue-rotate(216deg) brightness(100%) contrast(100%);
+}
+
 .section-title span {
-    background-color: black;
+    background-color: var(--color-bg);
     padding: 0px 20px;
 }
 
@@ -96,11 +136,21 @@ button:hover {
 
 /* --------- Header --------- */
 
+.switch-theme {
+    margin-right: 20px;
+    transition: 0.4s;
+}
+
+.switch-theme:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
+
 .menu {
     display: none;
 }
 
-.active {
+.active-menu {
     display: none;
 }
 
@@ -142,7 +192,12 @@ button:hover {
     margin-right: 20px;
 }
 
+
 .en {
+    color: white;
+}
+
+.lng-btn.active {
     color: var(--color-gold);
 }
 
@@ -211,7 +266,7 @@ button:hover {
     font-weight: 700;
     font-size: 20px;
     line-height: 200%;
-    color: white;
+    color: var(--color-font-white);
     margin: 0 auto;
     width: 280px;
     margin-top: 30px;
@@ -220,7 +275,7 @@ button:hover {
 
 .skill-text {
     font-family: Inter;
-    color: white;
+    color: var(--color-font-white);
     font-weight: 400;
     font-size: 18px;
     line-height: 200%;
@@ -304,7 +359,7 @@ button:hover {
     font-weight: 700;
     font-size: 28px;
     line-height: 200%;
-    color: white;
+    color: var(--color-font-white);
     margin-top: 40px; 
 }
 
@@ -323,7 +378,7 @@ button:hover {
     font-weight: 400;
     font-size: 18px;
     line-height: 200%;
-    color: white;
+    color: var(--color-font-white);
 }
 
 .price-items {
@@ -423,6 +478,7 @@ textarea {
 }
 
 .footer .container {
+    background-color: black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -508,6 +564,12 @@ textarea {
         width: 120%;
     }
     
+    .change .bar1,
+    .change .bar2,
+    .change .bar3 {
+        background-color: var(--color-font-white)
+    }
+
     h1 {
         font-size: 32px;
         font-weight: 400;
@@ -532,36 +594,42 @@ textarea {
         right: -620px;
         width: calc(100% - 148px); 
         height: 1024px;
-        background-color: black;
+        background-color: var(--color-bg);
         margin-left: auto;
         transition: 0.5s;
     }
 
-    .active {
+    .active-menu {
         display: block;
         position: fixed;
         top: 0;
         right: 0;
         width: calc(100% - 148px); 
         height: 1024px;
-        background-color: black;
+        background-color: var(--color-bg);
         margin-left: auto;
         transition: 0.5s;
     }
 
     .menu ul,
-    .active ul {
+    .active-menu ul {
         display: flex;
         flex-direction: column;
         margin-top: 134px;
         margin-left: 127px;
     }
 
-    .menu ul li,
-    .active ul li {
+    .menu ul li a,
+    .active-menu ul li a {
         font-size: 35px;
         line-height: 73px;
         margin-bottom: 16px;
+        color: var(--color-font-white);
+    }
+
+    .menu ul li,
+    .active-menu ul li {
+        color: var(--color-font-white);
     }
 
     .logo {
@@ -730,7 +798,7 @@ textarea {
 
 @media (max-width: 619px) {
     .menu,
-    .active {
+    .active-menu {
         width: 100%;
     }
 }
