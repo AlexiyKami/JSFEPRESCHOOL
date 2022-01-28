@@ -158,7 +158,12 @@ button:hover {
     margin-right: 20px;
 }
 
+
 .en {
+    color: white;
+}
+
+.lng-btn.active {
     color: var(--color-gold);
 }
 

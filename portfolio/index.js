@@ -1,3 +1,5 @@
+import i180bj from './translate.js';
+
 console.log("Score: 85 \nLayout matches pattern(768px): + 48\n>320px has no horizontal scroll bar: + 15\nAdaptive menu: + 22");
 // -------------hamburger menu-------------
 const hamburger = document.querySelector('.hamburger');
@@ -44,15 +46,35 @@ preloadSummerImages();
 
 // -------------active button-------------
 
-  
-  
-
 function changeClassActive(className) {
   const classes = document.querySelectorAll(`.${className}`);
   classes.forEach(x => x.addEventListener("click", () =>  {
     classes.forEach(y => y.classList.remove('active'));
     x.classList.add('active');
-  }));
+  }, false));
 }
 
 changeClassActive('portfolio-btn');
+
+// -------------translate-------------
+
+function getTranslate(lang) {
+  let elements = document.querySelectorAll('[data-i18]');
+  elements.forEach(elem => {
+    elem.textContent = i180bj[lang][elem.dataset.i18];
+    elem.textContent = i180bj[lang][elem.dataset.i18];
+  })
+}
+
+function switchLng(event) {
+  event.target.classList.add('active')
+  if(event.target.classList.contains('ru')) {
+    getTranslate('ru');
+  } else if(event.target.classList.contains('en')) {
+    getTranslate('en');
+  }
+}
+changeClassActive('lng-btn');
+const lngBtns = document.querySelector('.switch-lng');
+lngBtns.addEventListener("click", switchLng, false)
+
