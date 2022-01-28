@@ -3,7 +3,7 @@ import i180bj from './translate.js';
 let lang = "en";
 let theme = "dark";
 
-console.log("Score: 85 \nLayout matches pattern(768px): + 48\n>320px has no horizontal scroll bar: + 15\nAdaptive menu: + 22");
+console.log("Score: 85 \nPortfolio: change images: + 25\n> 2 languages + 25\nLight theme: + 25\nAdditional: local storage + 5\nAdditional: button effects + 5 ");
 // -------------hamburger menu-------------
 const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
