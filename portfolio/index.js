@@ -117,6 +117,8 @@ function switchTheme(theme) {
 const switchThemeBtn = document.querySelector('.switch-theme');
 switchThemeBtn.addEventListener("click", changeLightTheme);
 
+// -------------local storage-------------
+
 function setLocalStorage() {
   localStorage.setItem('lang', lang);
   if(document.getElementById("switch-theme").classList.contains('active')) {

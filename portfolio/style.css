@@ -54,6 +54,15 @@ button:hover {
     color: white;
 }
 
+.pulse:hover, .pulse:focus{
+	box-shadow: 0 0 0 1em rgba(255, 255, 255, 0);
+	animation: pulse 1s;
+}
+
+@keyframes pulse{
+	0%{box-shadow: 0 0 0 0 var(--color-gold)}
+}
+
 .gold-button {
     background: var(--color-gold);
     width: 220px;
