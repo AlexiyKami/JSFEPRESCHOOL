@@ -67,6 +67,10 @@ function getTranslate(language) {
   let elements = document.querySelectorAll('[data-i18]');
   elements.forEach(elem => elem.textContent = i180bj[language][elem.dataset.i18])
   lang = language;
+  if(language !== 'en') {
+    const en = document.querySelector('.en');
+    en.classList.remove('active');
+  }
 }
 
 function switchLng(event) {
