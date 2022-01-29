@@ -54,9 +54,11 @@ button:hover {
     color: white;
 }
 
-.pulse:hover, .pulse:focus{
+.pulse:focus{
 	box-shadow: 0 0 0 1em rgba(255, 255, 255, 0);
+    z-index: 5;
 	animation: pulse 1s;
+    -webkit-tap-highlight-color: transparent;
 }
 
 @keyframes pulse{
@@ -137,6 +139,7 @@ button:hover {
 /* --------- Header --------- */
 
 .switch-theme {
+    width: 45px;
     margin-right: 20px;
     transition: 0.4s;
 }
@@ -280,6 +283,7 @@ button:hover {
     font-size: 18px;
     line-height: 200%;
     margin: 0 auto;
+    height: 108px;
     width: 280px;
     margin-bottom: 8px;
 }
@@ -434,6 +438,7 @@ button:hover {
     color: var(--color-gold);
     font-weight: 700;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 ::placeholder {
@@ -442,10 +447,18 @@ button:hover {
     line-height: 200%;
     color: #bdae82;
     font-size: 20px;
-  }
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+    color: transparent;
+}
 
 input {
     background-color: rgba(0, 0, 0, 0.5);
+    color: var(--color-gold);
+    font-size: 20px;
+    font-family: inherit;
     border: 2px solid var(--color-gold);
     box-sizing: border-box;
     padding-left: 20px;
@@ -455,6 +468,9 @@ input {
 
 textarea {
     background-color: rgba(0, 0, 0, 0.5);
+    color: var(--color-gold);
+    font-size: 20px;
+    font-family: inherit;
     border: 2px solid var(--color-gold);
     box-sizing: border-box;
     padding-left: 20px;
@@ -634,11 +650,13 @@ textarea {
 
     .logo {
         margin-left: 60px;
+        margin-right: 10px;
     }
 
     .nav {
         display: none;
     }
+
 
     .ru {
         margin-left: 13px;
@@ -814,6 +832,11 @@ textarea {
     
     .hero-text {
         width: 250px;
+        margin-bottom: 50px;
+    }
+
+    .hero-section {
+        padding-bottom: 127px;
     }
 
     .portfolio-btns {
