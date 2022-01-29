@@ -621,6 +621,7 @@ textarea {
         background-color: var(--color-bg);
         margin-left: auto;
         transition: 0.5s;
+        z-index: 14;
     }
 
     .active-menu {
@@ -633,6 +634,7 @@ textarea {
         background-color: var(--color-bg);
         margin-left: auto;
         transition: 0.5s;
+        z-index: 14;
     }
 
     .menu ul,
