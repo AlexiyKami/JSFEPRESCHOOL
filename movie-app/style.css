@@ -1,3 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+:root {
+    --color-basic : #06568b;
+    --color-additional : #024069;
+    --color-lines : black;
+}
+
 html {
     scroll-behavior: smooth;
+    font-size: 20px;
+    color: black;
+    font-family: Ubuntu;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-basic);
+    padding: 1rem 1.5rem;   
+}
+
+.logo {
+    height: 50px;
+    width: 200px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+::placeholder {
+    color: black;
+}
+
+.search {
+    background-color: transparent;
+    border: 3px solid var(--color-lines);
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    color: rgb(124, 124, 124);
+    width: 200px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    border-top: 3px solid var(--color-lines);
+    border-bottom: 3px solid var(--color-lines);
+    background-color: var(--color-additional);
+    min-height: 100vh;
+}
+
+.search-stat {
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px;
+}
+
+.card-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--color-lines);
+    height: 600px;
+    width: 300px;
+    color: white;
+    background-color: var(--color-basic);
+}
+
+.card-rating {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: orange;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 3px;
+    border-bottom-left-radius: 5px;
+}
+
+.card-img-wrapper {
+
+}
+
+.card-info {
+    text-align: center;
+    padding: 1rem;
+}
+
+.card-overview {
+    padding: 1rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-basic);
+    padding: 1rem 1.5rem;
+    color: black;
+}
+
+.footer-container a img {
+    height: 50px;
+}
+
+.footer-data {
+    display: flex;
+    gap: 25px;
 }
