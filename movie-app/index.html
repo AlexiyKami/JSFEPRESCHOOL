@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Movie</title>
+    <link rel="icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="assets/svg/movie.svg" alt="logo" class="logo">
+        <h1 data-i18="search-movie">Search Movie</h1>
+        <div class="popular-btn" data-i18="popular-btn">Popular</div>
+        <div class="switch-lng" data-i18="switch-lng">Switch to Russian</div>
+        <form id="form">
+            <input type="text" id="search" class="search" placeholder="Search" autocomplete="off" autofocus data-i18="search">
+            <div class="cross-btn">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+            </div>
+        </form>
+    </header>
+    <main>
+        <div class="search-stat"></div>
+        <div class="card-wrapper">
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-data">
+                <span>&#169;</span>
+                <span>2022</span>
+                <a href="https://github.com/AlexiyKami" target="_blank">github</a>
+            </div>
+            <div class="page-switch">
+                <div class="prev" data-i18="prev">previous</div>
+                <div class="page-num">1</div>
+                <div class="next" data-i18="next">next</div>
+            </div>
+            
+            <a href="https://rs.school/js-stage0/" target="_blank"><img src="assets/svg/rss.svg" alt="RSS Logo"></a>
+        </div>
+    </footer>
+    <script type="module" src="index.js"></script>
+</body>
+</html>
