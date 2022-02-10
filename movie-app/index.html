@@ -13,29 +13,19 @@
     <header>
         <img src="assets/svg/movie.svg" alt="logo" class="logo">
         <h1 data-i18="search-movie">Search Movie</h1>
+        <div class="popular-btn" data-i18="popular-btn">Popular</div>
         <div class="switch-lng" data-i18="switch-lng">Switch to Russian</div>
         <form id="form">
-            <input type="text" id="search" class="search" placeholder="Search" autocomplete="off" autofocus>
+            <input type="text" id="search" class="search" placeholder="Search" autocomplete="off" autofocus data-i18="search">
+            <div class="cross-btn">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+            </div>
         </form>
     </header>
     <main>
         <div class="search-stat"></div>
         <div class="card-wrapper">
-            <!-- <div class="card-item">
-                <p class="card-rating">5.0</p>
-                <div class="card-img-wrapper">
-                    <img src="https://image.tmdb.org/t/p/w300/iUzwDAaYvceIqSoN4apE5SldS3V.jpg" alt="image" class="card-img">
-                </div>
-                <div class="card-info">
-                    <h3>Title(${year})</h3>
-                </div>
-                <div class="card-overview">
-                    <p>Genre</p>
-                </div>
-                <div class="card-menu">
-                    <p></p>
-                </div>
-            </div> -->
         </div>
     </main>
     <footer>
