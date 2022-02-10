@@ -4,6 +4,7 @@
     --color-basic : #06568b;
     --color-additional : #024069;
     --color-lines : black;
+    --color-active : #00A383;
 }
 
 html {
@@ -16,6 +17,12 @@ html {
 a {
     text-decoration: none;
     color: inherit;
+    transition: color 0.4s;
+}
+
+a:hover {
+    transition: color 0.4s;
+    color : var(--color-active);
 }
 
 header {
@@ -41,15 +48,21 @@ h1 {
 }
 
 .switch-lng {
-    background-color: black;
+    background-color: var(--color-additional);
     padding: 0.5rem;
     border: 3px solid black;
     border-radius: 25px;
-    width: 100px;
+    width: 150px;
     margin-left: auto;
     margin-right: 25px;
     text-align: center;
     cursor: pointer;
+    transition: color 0.4s;
+}
+
+.switch-lng:hover {
+    transition: color 0.4s;
+    color : var(--color-active);
 }
 
 .search {
@@ -88,7 +101,7 @@ main {
     display: flex;
     flex-direction: column;
     border: 2px solid var(--color-lines);
-    height: 650px;
+    height: 600px;
     width: 300px;
     color: white;
     background-color: var(--color-basic);
@@ -100,7 +113,7 @@ main {
     right: 0;
     color: green;
     background-color: rgba(0, 0, 0, 0.9);
-    padding: 3px;
+    padding: 1px 1px 3px 3px;
     border-bottom-left-radius: 5px;
 }
 
@@ -133,8 +146,8 @@ main {
     bottom: 0;
     left: 0;
     width: 280px;
-    min-height: 200px;
-    max-height: 640px;  
+    min-height: 140px;
+    max-height: 590px;  
     background-color: rgba(0, 0, 0, 0.9);
     opacity: 0;
     padding-top: 10px;
@@ -163,6 +176,32 @@ main {
 
 .footer-container a img {
     height: 50px;
+}
+
+.page-switch {
+    display: flex;
+    gap: 25px;
+}
+
+.page-num {
+    background-color: var(--color-additional);
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+.prev , .next {
+    background-color: var(--color-additional);
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: color 0.4s;
+}
+
+.prev:hover , .next:hover {
+    transition: color 0.4s;
+    color : var(--color-active);
 }
 
 .footer-data {

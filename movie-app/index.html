@@ -12,10 +12,10 @@
 <body>
     <header>
         <img src="assets/svg/movie.svg" alt="logo" class="logo">
-        <h1>Search Movie</h1>
-        <div class="switch-lng">Switch language</div>
+        <h1 data-i18="search-movie">Search Movie</h1>
+        <div class="switch-lng" data-i18="switch-lng">Switch to Russian</div>
         <form id="form">
-            <input type="text" id="search" class="search" placeholder="Search" autocomplete="off">
+            <input type="text" id="search" class="search" placeholder="Search" autocomplete="off" autofocus>
         </form>
     </header>
     <main>
@@ -45,9 +45,15 @@
                 <span>2022</span>
                 <a href="https://github.com/AlexiyKami" target="_blank">github</a>
             </div>
+            <div class="page-switch">
+                <div class="prev" data-i18="prev">previous</div>
+                <div class="page-num">1</div>
+                <div class="next" data-i18="next">next</div>
+            </div>
+            
             <a href="https://rs.school/js-stage0/" target="_blank"><img src="assets/svg/rss.svg" alt="RSS Logo"></a>
         </div>
     </footer>
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 </html>
