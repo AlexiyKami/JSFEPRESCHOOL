@@ -55,6 +55,9 @@ function getInputValue() {
     localStorage.setItem('query',query);
     page = 1;
     localStorage.setItem('page',page);
+    if(form.value == "") {
+        form.placeholder = i180bj[language][form.dataset.i18];
+    }
 }
 
 const pageNum = document.querySelector('.page-num');
@@ -75,18 +78,15 @@ function getLocalStorage() {
         searchMode = localStorage.getItem('searchMode');
     }
 
-    pageNum.textContent = page;
-    form.placeholder = query;
+    form.value = query;
 
     const crossBtn = document.querySelector('.cross-btn');
     crossBtn.addEventListener('click', function clearForm() {
         form.placeholder = i180bj[language][form.dataset.i18];
-        query = "";
         form.value = "";
     }
     )
-
-    if(form.placeholder == "") {
+    if(form.value == "") {
         form.placeholder = i180bj[language][form.dataset.i18];
     }
         
@@ -98,6 +98,10 @@ function getLocalStorage() {
         url = `https://api.themoviedb.org/3/search/movie?api_key=f72149d6bc624d0a624f793a656c6f1a&query=${query}&page=${page}&language=${language}`;
     } else {
         url = `https://api.themoviedb.org/3/movie/popular?api_key=f72149d6bc624d0a624f793a656c6f1a&language=${language}&page=${page}`
+        query = "";
+        localStorage.setItem('query',query);
+        form.value = "";
+        form.placeholder = i180bj[language][form.dataset.i18];
     }
 
     getData();
@@ -157,6 +161,7 @@ function showData(data, genreData) {
 
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
+    pageNum.textContent = page + ' / ' + data.total_pages;
     prevBtn.addEventListener('click', prevPage);
     nextBtn.addEventListener('click', nextPage);
     function prevPage() {
