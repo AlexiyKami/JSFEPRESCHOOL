@@ -18,6 +18,7 @@ a {
     text-decoration: none;
     color: inherit;
     transition: color 0.4s;
+    -webkit-tap-highlight-color: transparent;
 }
 
 a:hover {
@@ -224,6 +225,8 @@ main {
 
 .card-menu a:hover {
     color: #00A383;
+    text-decoration: underline;
+    
 }
 
 .card-item:hover .card-menu{
