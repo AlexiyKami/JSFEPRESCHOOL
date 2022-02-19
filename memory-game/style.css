@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: Rubik;
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.7s;
+}
+
+a:hover {
+    color: gold;
+    text-decoration: underline;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    height: 70px;
+}
+
+.title {
+    font-size: 32px;
+    margin: auto 25px;
+}
+
+.stats {
+    padding: 15px;
+    width: 175px;
+}
+
+.menu-btn {
+    padding: 25px;
+    margin-left: 70px;
+    cursor: pointer;
+    transition: color 0.7s;
+}
+
+.menu-btn:hover {
+    color: gold;
+    transition: color 0.7s;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: grey;
+    height: calc(100vh - 140px);
+}
+
+.card-wrapper {
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    width: 960px;
+    height: 750px;
+    perspective: 1000px;
+}
+
+.memory-card {
+    background-color: black;
+    border-radius: 15px;
+    width: calc(25% - 10px);
+    height: calc(32% - 10px);
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.memory-card.flip:active {
+    transform: rotateY(180deg);
+}
+
+.memory-card:active {
+    transform: scale(0.95);
+    transition: transform 0.5s;
+}
+
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    border: 3px solid black;
+    border-radius: 15px;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+.menu-records {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: calc(100vh - 140px);
+    width: 400px;
+    padding: 25px;
+    right: -400px;
+    text-align: center;
+    transition: all 0.5s;
+    z-index: 5;
+}
+
+.menu-records.active {
+    right: 0;
+    transition: all 0.5s;
+}
+
+.record {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 5px;
+}
+
+.menu-records h3 {
+    font-size: 24px;
+    padding-bottom: 10px;
+}
+
+.menu-records h4 {
+    font-size: 18px;
+    padding: 5px;
+}
+
+.menu-records h5 {
+    font-size: 18px;
+    padding-bottom: 5px;
+}
+
+.win-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    height: 50%;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 50px;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    transition: all 3s ease-in-out;
+    z-index: 4;
+}
+
+.win-title.active {
+    top: 50%;
+    left: 50%;
+}
+
+.win-title h2 {
+    font-size: 54px;
+    margin-top: 75px;
+    margin-bottom: 25px;
+}
+
+.restart-btn {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 25px;
+    padding: 25px;
+    width: 250px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.footer-container {
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    height: 70px;
+}
+
+.footer-container a img {
+    height: 50px;
+    transition: filter 0.7s;
+}
+.footer-container a img:hover {
+    transition: filter 0.7s;
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
+
+.footer-data {
+    display: flex;
+    gap: 25px;
+}
+
+@media (max-width: 960px) {
+    .card-wrapper {
+        width: 640px;
+        height: 500px;
+    }
+}
