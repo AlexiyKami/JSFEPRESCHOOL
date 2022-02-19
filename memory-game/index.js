@@ -98,8 +98,8 @@ function getRecord() {
         <h4>There are no records here</h4>`);
     }
     recordArr.forEach((elem,index) => {
-        const recordTitle = `<h4>${index + 1}. Time: ${elem.time}, Moves: ${elem.moves}</h4>
-        <h5>${elem.date}</h5>`
+        const recordTitle = `<div class="record"><h4>${index + 1}. Time: ${elem.time}, Moves: ${elem.moves}</h4>
+        <h5>${elem.date}</h5></div>`
         recordsMenu.insertAdjacentHTML('beforeend', recordTitle);
     })
     

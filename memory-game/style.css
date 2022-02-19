@@ -44,8 +44,13 @@ header {
     padding: 25px;
     margin-left: 70px;
     cursor: pointer;
+    transition: color 0.7s;
 }
 
+.menu-btn:hover {
+    color: gold;
+    transition: color 0.7s;
+}
 
 main {
     display: flex;
@@ -119,17 +124,24 @@ main {
     transition: all 0.5s;
 }
 
+.record {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 5px;
+}
+
 .menu-records h3 {
     font-size: 24px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .menu-records h4 {
-    padding: 10px;
+    font-size: 18px;
+    padding: 5px;
 }
 
 .menu-records h5 {
-    padding-bottom: 10px;
+    font-size: 18px;
+    padding-bottom: 5px;
 }
 
 .win-title {
@@ -156,8 +168,8 @@ main {
 
 .win-title h2 {
     font-size: 54px;
-    margin-top: 25px;
-    margin-bottom: 50px;
+    margin-top: 75px;
+    margin-bottom: 25px;
 }
 
 .restart-btn {
@@ -182,6 +194,12 @@ main {
 
 .footer-container a img {
     height: 50px;
+    transition: filter 0.7s;
+}
+.footer-container a img:hover {
+    transition: filter 0.7s;
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 .footer-data {
