@@ -1,29 +1,84 @@
+console.log(`Вёрстка +10
+Логика игры. Карточки, по которым кликнул игрок, переворачиваются согласно правилам игры +10
+Игра завершается, когда открыты все карточки +10
+По окончанию игры выводится её результат - количество ходов, которые понадобились для завершения игры +10
+Результаты последних 10 игр сохраняются в local storage. Есть таблица рекордов, в которой сохраняются результаты предыдущих 10 игр +10
+По клику на карточку – она переворачивается плавно, если пара не совпадает – обе карточки так же плавно переварачиваются рубашкой вверх +10
+Очень высокое качество оформления приложения и/или дополнительный не предусмотренный в задании функционал, улучшающий качество приложения +10
+Добавлены:
+- Адаптивная верстка
+- Стартовое меню с описанием правил игры
+- Кнопка перезапуска после окончания игры
+- Меню Scores и Records
+- Score содержит результаты последних 10 игр
+- Records содержит лучшие результаты (минимальная сумма (seconds + moves))`)
+
 const cards = document.querySelectorAll('.memory-card');
 cards.forEach(card => card.addEventListener('click', flipCard))
 
 const timer = document.querySelector('.timer');
 const movesCount = document.querySelector('.moves');
 
+const scoresMenu = document.querySelector('.menu-scores');
+const scoresMenuBtn = document.querySelector('.score-btn');
+
 const recordsMenu = document.querySelector('.menu-records');
-const recordsMenuBtn = document.querySelector('.menu-btn');
+const recordsMenuBtn = document.querySelector('.record-btn');
 
 const winTitle = document.querySelector('.win-title');
 const restartBtn = document.querySelector('.restart-btn');
 
-recordsMenuBtn.addEventListener('click', () => recordsMenu.classList.toggle('active'));
-restartBtn.addEventListener('click', () => location.reload());
+const cardWrapper = document.querySelector('.card-wrapper');
+const startMenu = document.querySelector('.start-menu');
+const startBtn = document.querySelector('.start-btn');
+
+scoresMenuBtn.addEventListener('click', () => {
+    recordsMenu.classList.remove('active');
+    scoresMenu.classList.toggle('active');
+    
+});
+
+recordsMenuBtn.addEventListener('click',() => {
+    scoresMenu.classList.remove('active');
+    recordsMenu.classList.toggle('active');
+})
+
+restartBtn.addEventListener('click', restartGame);
+startBtn.addEventListener('click', startGame);
 
 let moves = 0;
 let hour = 0;
 let min = 0
 let sec = 0;
+let time = 0;
 
 let hasFlippedCard = false;
 let lockBoard  = false;
 let firstCard;
 let secondCard;
+let scoreArr = [];
 let recordArr = [];
-let hasEnded = false;
+let isPlay = false;
+
+function startGame() {
+    isPlay = true;
+    startMenu.classList.add('hidden');
+    cardWrapper.style.display = "flex";
+}
+
+function restartGame() {
+    
+    resetStats();
+    hideWinTitle();
+    setTimeout(() => {
+        shuffle();
+    }, 1000)
+    cards.forEach(card => {
+        card.classList.remove('flip');
+        card.addEventListener('click', flipCard);
+    });
+    isPlay = true;
+}
 
 function flipCard() {
 
@@ -60,8 +115,9 @@ function checkForWin() {
         }
     })
     if(hasWin === true) {
-        hasEnded = true;
-        setRecord();
+        isPlay = false;
+        setScore();
+        getScore();
         getRecord();
         showWinTitle();
     };
@@ -69,32 +125,66 @@ function checkForWin() {
 
 function showWinTitle() {
     winTitle.classList.add('active');
-    winTitle.insertAdjacentHTML('afterbegin',`<h3>Moves: ${moves}, Time: ${getTime()}</h3>`)
+    winTitle.insertAdjacentHTML('afterbegin',`<h3 class="win-stat">Moves: ${moves}, Time: ${getTime()}</h3>`)
+}
+
+function hideWinTitle() {
+    winTitle.classList.remove('active');
+    document.querySelector('.win-stat').remove();
+}
+
+function setScore() {
+    let scoreObj = {
+        moves: moves,
+        time : getTime(),
+        date : getDate(),
+        seconds : time,
+        points : moves + time
+    }
+
+    scoreArr.unshift(scoreObj);
+    if(scoreArr.length > 10) {
+        scoreArr.pop();
+    }
+    localStorage.setItem('scoreArr', JSON.stringify(scoreArr));
+}
+
+window.addEventListener('load', () => {
+    getScore();
+    getRecord();
+});
+
+function getScore() {
+    if(localStorage.getItem('scoreArr')) {
+        scoreArr = JSON.parse(localStorage.getItem('scoreArr'));
+        scoresMenu.innerHTML = '';
+        scoresMenu.insertAdjacentHTML('beforeend', `<h3>Last 10 games: </h3>`);
+    } else {
+        scoresMenu.insertAdjacentHTML('beforeend', `<h3>Last 10 games: </h3>
+        <h4>There are no scores here</h4>`);
+    }
+    scoreArr.forEach((elem,index) => {
+        const scoreTitle = `<div class="score"><h4>Time: ${elem.time}, Moves: ${elem.moves}</h4>
+        <h5>${elem.date}</h5></div>`
+        scoresMenu.insertAdjacentHTML('beforeend', scoreTitle);
+    })
+    
 }
 
 function setRecord() {
-    let recordObj = {
-        moves: moves,
-        time : getTime(),
-        date : getDate()
-    }
-
-    recordArr.unshift(recordObj);
+    recordArr = scoreArr.slice().sort((a, b) => a.points - b.points);
     if(recordArr.length > 10) {
         recordArr.pop();
     }
-    localStorage.setItem('recordArr', JSON.stringify(recordArr));
 }
 
-window.addEventListener('load', getRecord());
-
 function getRecord() {
-    if(localStorage.getItem('recordArr')) {
-        recordArr = JSON.parse(localStorage.getItem('recordArr'));
+    setRecord();
+    if(localStorage.getItem('scoreArr')) {
         recordsMenu.innerHTML = '';
-        recordsMenu.insertAdjacentHTML('beforeend', `<h3>Last scores: </h3>`);
+        recordsMenu.insertAdjacentHTML('beforeend', `<h3>Top 10: </h3>`);
     } else {
-        recordsMenu.insertAdjacentHTML('beforeend', `<h3>Last scores: </h3>
+        scoresMenu.insertAdjacentHTML('beforeend', `<h3>Top 10: </h3>
         <h4>There are no records here</h4>`);
     }
     recordArr.forEach((elem,index) => {
@@ -102,7 +192,6 @@ function getRecord() {
         <h5>${elem.date}</h5></div>`
         recordsMenu.insertAdjacentHTML('beforeend', recordTitle);
     })
-    
 }
 
 function disableCards() {
@@ -126,17 +215,25 @@ function resetBoard() {
     [firstCard, secondCard] = [null, null];
 }
 
-(function shuffle() {
+function shuffle() {
     cards.forEach(card => {
       let randomPos = Math.floor(Math.random() * 12);
       card.style.order = randomPos;
     });
-})();
+};
+shuffle();
 
+function resetStats() {
+    moves = 0;
+    hour = 0;
+    min = 0;
+    sec = 0;
+    time = 0;
+}
 
 
 setInterval(() => {
-    if(!hasEnded) {
+    if(isPlay) {
         timer.textContent = `Time: ${getTime(true)}`;
     }
 } , 1000);
@@ -144,6 +241,7 @@ setInterval(() => {
 function getTime(addSec) {
     if(addSec) {
         sec++;
+        time++;
     }
     if(sec >= 60) {
         sec = 0;
@@ -163,6 +261,6 @@ function getDate() {
     let hours = String(date.getHours()).length < 2 ? '0' + date.getHours() : date.getHours();
     let minutes = String(date.getMinutes()).length < 2 ? '0' + date.getMinutes() : date.getMinutes();
     let seconds = String(date.getSeconds()).length < 2 ? '0' + date.getSeconds() : date.getSeconds();
-    return `${months[date.getMonth()]} ${date.getDay()}, ${date.getFullYear()} ${hours}:${minutes}:${seconds}`;
+    return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} ${hours}:${minutes}:${seconds}`;
 }
 

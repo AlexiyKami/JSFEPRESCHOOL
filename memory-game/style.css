@@ -16,6 +16,7 @@ a {
     text-decoration: none;
     color: white;
     transition: color 0.7s;
+    -webkit-tap-highlight-color: transparent;
 }
 
 a:hover {
@@ -33,21 +34,29 @@ header {
 .title {
     font-size: 32px;
     margin: auto 25px;
+    text-align: center;
 }
 
 .stats {
+    text-align: center;
     padding: 15px;
-    width: 175px;
+    width: 200px;
 }
 
-.menu-btn {
-    padding: 25px;
-    margin-left: 70px;
+.btns {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.score-btn, .record-btn {
+    padding: 15px;
     cursor: pointer;
     transition: color 0.7s;
 }
 
-.menu-btn:hover {
+.score-btn:hover, .record-btn:hover {
     color: gold;
     transition: color 0.7s;
 }
@@ -56,23 +65,23 @@ main {
     display: flex;
     flex-wrap: wrap;
     background-color: grey;
-    height: calc(100vh - 140px);
+    min-height: calc(100vh - 140px);
 }
 
 .card-wrapper {
-    display: flex;
+    display: none;
     margin: auto;
     flex-wrap: wrap;
-    width: 960px;
-    height: 750px;
+    width: 720px;
+    height: 550px;
     perspective: 1000px;
 }
 
 .memory-card {
     background-color: black;
     border-radius: 15px;
-    width: calc(25% - 10px);
-    height: calc(32% - 10px);
+    width: 170px;
+    height: 170px;
     margin: 5px;
     position: relative;
     transform: scale(1);
@@ -107,10 +116,10 @@ main {
     transform: rotateY(180deg);
 }
 
-.menu-records {
+.menu-scores, .menu-records {
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.8);
-    height: calc(100vh - 140px);
+    background-color: rgba(0, 0, 0, 0.9);
+    height: calc(100vh);
     width: 400px;
     padding: 25px;
     right: -400px;
@@ -119,29 +128,72 @@ main {
     z-index: 5;
 }
 
-.menu-records.active {
+.menu-scores.active , .menu-records.active {
     right: 0;
     transition: all 0.5s;
 }
 
-.record {
+.score, .record {
     border: 1px solid rgba(255, 255, 255, 0.2);
     margin: 5px;
 }
 
-.menu-records h3 {
+.menu-scores h3, .menu-records h3 {
     font-size: 24px;
     padding-bottom: 10px;
 }
 
-.menu-records h4 {
+.menu-scores h4, .menu-records h4 {
     font-size: 18px;
     padding: 5px;
 }
 
-.menu-records h5 {
+.menu-scores h5, .menu-records h5 {
     font-size: 18px;
     padding-bottom: 5px;
+}
+
+.start-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: fixed;
+    height: 80%;
+    width: 60%;
+    background-color: rgba(0, 0, 0);
+    border-radius: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    transition: all 1s ease-in-out;
+    z-index: 4;
+}
+
+.start-menu.hidden {
+    top: 550%;
+}
+
+.start-menu h2 {
+    font-size: 32px;
+}
+
+.start-menu p {
+    font-size: 26px;
+    line-height: 200%;
+    text-align: left;
+    padding: 30px;
+}
+
+.start-btn {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 25px;
+    padding: 25px;
+    width: 250px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 25px;
 }
 
 .win-title {
@@ -153,7 +205,7 @@ main {
     width: 50%;
     background-color: rgba(0, 0, 0, 0.9);
     border-radius: 50px;
-    top: -50%;
+    top: -550%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -207,9 +259,125 @@ main {
     gap: 25px;
 }
 
+@media (max-width: 1024px) {
+    .start-menu h2 {
+        padding-top: 20px;
+    }
+}
+
 @media (max-width: 960px) {
+    .start-menu p {
+        font-size: 20px;
+    }
+
+    .start-menu {
+        width: 600px;
+        height: 500px;
+    }
+
     .card-wrapper {
         width: 640px;
-        height: 500px;
+        height: 490px;
+    }
+
+    .memory-card {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 660px) {
+    header, .footer-container {
+        height: 100px;
+    }
+
+    .stats {
+        padding: 20px;
+    }
+
+    .score-btn {
+        padding: 15px;
+    }
+
+    .win-title {
+        width: 350px;
+    }
+
+    .start-menu {
+        width: 450px;
+    }
+
+    .start-menu h2 {
+        margin-top: 20px;
+    }
+
+    .start-btn {
+        margin-top: 0;
+    }
+
+    .card-wrapper {
+        width: 330px;
+        height: 440px;
+    }
+
+    .memory-card {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 500px) {
+    .stats {
+        width: 100px;
+        padding: 10px;
+    }
+
+    .title {
+        display: none;
+    }
+
+    .start-menu {
+        width: 350px;
+    }
+
+    .start-menu p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 460px) {
+    
+
+    .menu-scores, .menu-records {
+        width: 320px;
+    }
+
+    .card-wrapper {
+        width: 300px;
+        height: 400px;
+    }
+
+    .memory-card {
+        width: 90px;
+        height: 90px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .start-menu {
+        width: 300px;
+    }
+
+    .start-menu h2 {
+        font-size: 20px;
+    }
+
+    .win-title {
+        width: 300px;
     }
 }

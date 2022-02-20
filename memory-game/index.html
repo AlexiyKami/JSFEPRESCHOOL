@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Game</title>
-    <link rel="icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/favicon.ico"
 </head>
 <body>
     <header>
@@ -16,7 +16,10 @@
             <div class="timer">Time: 00:00:00</div>
         </div>
         <h1 class="title">Memory Game</h1>
-        <div class="menu-btn">Scores</div>
+        <div class="btns">
+            <div class="score-btn">Scores</div>
+            <div class="record-btn">Records</div>
+        </div>
     </header>
     <main>
         <div class="card-wrapper">
@@ -69,7 +72,14 @@
                 <img class="back-face" src="assets/img/face.jpg" alt="Back">
             </div>
         </div>
+        <div class="menu-scores">
+        </div>
         <div class="menu-records">
+        </div>
+        <div class="start-menu">
+            <h2>Welcome to Memory Game</h2>
+            <p>Rules: Player must turn a cards over and find pairs.<br>Player clicks on the cards and turn it over.<br> If two cards are the same (have the same images), they remain face up.<br>The goal of the game is to open all the cards in less moves.</p>
+            <div class="start-btn">Start</div>
         </div>
         <div class="win-title">
             <h2>You Win</h2>
