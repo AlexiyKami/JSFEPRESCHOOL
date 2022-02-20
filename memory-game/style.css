@@ -292,6 +292,10 @@ main {
         height: 100px;
     }
 
+    main {
+        min-height: calc(100vh - 200px);
+    }
+
     .stats {
         padding: 20px;
     }
