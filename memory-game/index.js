@@ -7,6 +7,9 @@ const movesCount = document.querySelector('.moves');
 const scoresMenu = document.querySelector('.menu-scores');
 const scoresMenuBtn = document.querySelector('.score-btn');
 
+const recordsMenu = document.querySelector('.menu-records');
+const recordsMenuBtn = document.querySelector('.record-btn');
+
 const winTitle = document.querySelector('.win-title');
 const restartBtn = document.querySelector('.restart-btn');
 
@@ -14,7 +17,17 @@ const cardWrapper = document.querySelector('.card-wrapper');
 const startMenu = document.querySelector('.start-menu');
 const startBtn = document.querySelector('.start-btn');
 
-scoresMenuBtn.addEventListener('click', () => scoresMenu.classList.toggle('active'));
+scoresMenuBtn.addEventListener('click', () => {
+    recordsMenu.classList.remove('active');
+    scoresMenu.classList.toggle('active');
+    
+});
+
+recordsMenuBtn.addEventListener('click',() => {
+    scoresMenu.classList.remove('active');
+    recordsMenu.classList.toggle('active');
+})
+
 restartBtn.addEventListener('click', restartGame);
 startBtn.addEventListener('click', startGame);
 
@@ -22,12 +35,14 @@ let moves = 0;
 let hour = 0;
 let min = 0
 let sec = 0;
+let time = 0;
 
 let hasFlippedCard = false;
 let lockBoard  = false;
 let firstCard;
 let secondCard;
 let scoreArr = [];
+let recordArr = [];
 let isPlay = false;
 
 function startGame() {
@@ -88,6 +103,7 @@ function checkForWin() {
         isPlay = false;
         setScore();
         getScore();
+        getRecord();
         showWinTitle();
     };
 }
@@ -106,7 +122,9 @@ function setScore() {
     let scoreObj = {
         moves: moves,
         time : getTime(),
-        date : getDate()
+        date : getDate(),
+        seconds : time,
+        points : moves + time
     }
 
     scoreArr.unshift(scoreObj);
@@ -116,7 +134,10 @@ function setScore() {
     localStorage.setItem('scoreArr', JSON.stringify(scoreArr));
 }
 
-window.addEventListener('load', getScore());
+window.addEventListener('load', () => {
+    getScore();
+    getRecord();
+});
 
 function getScore() {
     if(localStorage.getItem('scoreArr')) {
@@ -133,6 +154,30 @@ function getScore() {
         scoresMenu.insertAdjacentHTML('beforeend', scoreTitle);
     })
     
+}
+
+function setRecord() {
+    recordArr = scoreArr.slice().sort((a, b) => a.points - b.points);
+    if(recordArr.length > 5) {
+        recordArr.pop();
+    }
+}
+
+function getRecord() {
+    setRecord();
+    if(localStorage.getItem('scoreArr')) {
+        recordsMenu.innerHTML = '';
+        recordsMenu.insertAdjacentHTML('beforeend', `<h3>Last records: </h3>`);
+    } else {
+        scoresMenu.insertAdjacentHTML('beforeend', `<h3>Last records: </h3>
+        <h4>There are no records here</h4>`);
+    }
+    recordArr.forEach((elem,index) => {
+        const recordTitle = `<div class="record"><h4>${index + 1}. Time: ${elem.time}, Moves: ${elem.moves}</h4>
+        <h5>${elem.date}</h5></div>`
+        recordsMenu.insertAdjacentHTML('beforeend', recordTitle);
+    })
+    console.log(recordArr);
 }
 
 function disableCards() {
@@ -169,6 +214,7 @@ function resetStats() {
     hour = 0;
     min = 0;
     sec = 0;
+    time = 0;
 }
 
 
@@ -181,6 +227,7 @@ setInterval(() => {
 function getTime(addSec) {
     if(addSec) {
         sec++;
+        time++;
     }
     if(sec >= 60) {
         sec = 0;

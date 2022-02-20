@@ -138,17 +138,17 @@ main {
     margin: 5px;
 }
 
-.menu-scores h3 {
+.menu-scores h3, .menu-records h3 {
     font-size: 24px;
     padding-bottom: 10px;
 }
 
-.menu-scores h4 {
+.menu-scores h4, .menu-records h4 {
     font-size: 18px;
     padding: 5px;
 }
 
-.menu-scores h5 {
+.menu-scores h5, .menu-records h5 {
     font-size: 18px;
     padding-bottom: 5px;
 }
