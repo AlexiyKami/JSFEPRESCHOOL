@@ -4,14 +4,19 @@ cards.forEach(card => card.addEventListener('click', flipCard))
 const timer = document.querySelector('.timer');
 const movesCount = document.querySelector('.moves');
 
-const recordsMenu = document.querySelector('.menu-records');
-const recordsMenuBtn = document.querySelector('.menu-btn');
+const scoresMenu = document.querySelector('.menu-scores');
+const scoresMenuBtn = document.querySelector('.score-btn');
 
 const winTitle = document.querySelector('.win-title');
 const restartBtn = document.querySelector('.restart-btn');
 
-recordsMenuBtn.addEventListener('click', () => recordsMenu.classList.toggle('active'));
-restartBtn.addEventListener('click', () => location.reload());
+const cardWrapper = document.querySelector('.card-wrapper');
+const startMenu = document.querySelector('.start-menu');
+const startBtn = document.querySelector('.start-btn');
+
+scoresMenuBtn.addEventListener('click', () => scoresMenu.classList.toggle('active'));
+restartBtn.addEventListener('click', restartGame);
+startBtn.addEventListener('click', startGame);
 
 let moves = 0;
 let hour = 0;
@@ -22,8 +27,28 @@ let hasFlippedCard = false;
 let lockBoard  = false;
 let firstCard;
 let secondCard;
-let recordArr = [];
-let hasEnded = false;
+let scoreArr = [];
+let isPlay = false;
+
+function startGame() {
+    isPlay = true;
+    startMenu.classList.add('hidden');
+    cardWrapper.style.display = "flex";
+}
+
+function restartGame() {
+    
+    resetStats();
+    hideWinTitle();
+    setTimeout(() => {
+        shuffle();
+    }, 1000)
+    cards.forEach(card => {
+        card.classList.remove('flip');
+        card.addEventListener('click', flipCard);
+    });
+    isPlay = true;
+}
 
 function flipCard() {
 
@@ -60,47 +85,52 @@ function checkForWin() {
         }
     })
     if(hasWin === true) {
-        hasEnded = true;
-        setRecord();
-        getRecord();
+        isPlay = false;
+        setScore();
+        getScore();
         showWinTitle();
     };
 }
 
 function showWinTitle() {
     winTitle.classList.add('active');
-    winTitle.insertAdjacentHTML('afterbegin',`<h3>Moves: ${moves}, Time: ${getTime()}</h3>`)
+    winTitle.insertAdjacentHTML('afterbegin',`<h3 class="win-stat">Moves: ${moves}, Time: ${getTime()}</h3>`)
 }
 
-function setRecord() {
-    let recordObj = {
+function hideWinTitle() {
+    winTitle.classList.remove('active');
+    document.querySelector('.win-stat').remove();
+}
+
+function setScore() {
+    let scoreObj = {
         moves: moves,
         time : getTime(),
         date : getDate()
     }
 
-    recordArr.unshift(recordObj);
-    if(recordArr.length > 10) {
-        recordArr.pop();
+    scoreArr.unshift(scoreObj);
+    if(scoreArr.length > 10) {
+        scoreArr.pop();
     }
-    localStorage.setItem('recordArr', JSON.stringify(recordArr));
+    localStorage.setItem('scoreArr', JSON.stringify(scoreArr));
 }
 
-window.addEventListener('load', getRecord());
+window.addEventListener('load', getScore());
 
-function getRecord() {
-    if(localStorage.getItem('recordArr')) {
-        recordArr = JSON.parse(localStorage.getItem('recordArr'));
-        recordsMenu.innerHTML = '';
-        recordsMenu.insertAdjacentHTML('beforeend', `<h3>Last scores: </h3>`);
+function getScore() {
+    if(localStorage.getItem('scoreArr')) {
+        scoreArr = JSON.parse(localStorage.getItem('scoreArr'));
+        scoresMenu.innerHTML = '';
+        scoresMenu.insertAdjacentHTML('beforeend', `<h3>Last scores: </h3>`);
     } else {
-        recordsMenu.insertAdjacentHTML('beforeend', `<h3>Last scores: </h3>
-        <h4>There are no records here</h4>`);
+        scoresMenu.insertAdjacentHTML('beforeend', `<h3>Last scores: </h3>
+        <h4>There are no scores here</h4>`);
     }
-    recordArr.forEach((elem,index) => {
-        const recordTitle = `<div class="record"><h4>${index + 1}. Time: ${elem.time}, Moves: ${elem.moves}</h4>
+    scoreArr.forEach((elem,index) => {
+        const scoreTitle = `<div class="score"><h4>${index + 1}. Time: ${elem.time}, Moves: ${elem.moves}</h4>
         <h5>${elem.date}</h5></div>`
-        recordsMenu.insertAdjacentHTML('beforeend', recordTitle);
+        scoresMenu.insertAdjacentHTML('beforeend', scoreTitle);
     })
     
 }
@@ -126,17 +156,24 @@ function resetBoard() {
     [firstCard, secondCard] = [null, null];
 }
 
-(function shuffle() {
+function shuffle() {
     cards.forEach(card => {
       let randomPos = Math.floor(Math.random() * 12);
       card.style.order = randomPos;
     });
-})();
+};
+shuffle();
 
+function resetStats() {
+    moves = 0;
+    hour = 0;
+    min = 0;
+    sec = 0;
+}
 
 
 setInterval(() => {
-    if(!hasEnded) {
+    if(isPlay) {
         timer.textContent = `Time: ${getTime(true)}`;
     }
 } , 1000);
@@ -163,6 +200,6 @@ function getDate() {
     let hours = String(date.getHours()).length < 2 ? '0' + date.getHours() : date.getHours();
     let minutes = String(date.getMinutes()).length < 2 ? '0' + date.getMinutes() : date.getMinutes();
     let seconds = String(date.getSeconds()).length < 2 ? '0' + date.getSeconds() : date.getSeconds();
-    return `${months[date.getMonth()]} ${date.getDay()}, ${date.getFullYear()} ${hours}:${minutes}:${seconds}`;
+    return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} ${hours}:${minutes}:${seconds}`;
 }
 
