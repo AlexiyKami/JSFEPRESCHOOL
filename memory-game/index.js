@@ -184,7 +184,7 @@ function getRecord() {
         recordsMenu.innerHTML = '';
         recordsMenu.insertAdjacentHTML('beforeend', `<h3>Top 10: </h3>`);
     } else {
-        scoresMenu.insertAdjacentHTML('beforeend', `<h3>Top 10: </h3>
+        recordsMenu.insertAdjacentHTML('beforeend', `<h3>Top 10: </h3>
         <h4>There are no records here</h4>`);
     }
     recordArr.forEach((elem,index) => {
