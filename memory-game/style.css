@@ -348,7 +348,7 @@ main {
 @media (max-width: 460px) {
     
 
-    .menu-scores {
+    .menu-scores, .menu-records {
         width: 320px;
     }
 
